@@ -24,10 +24,7 @@ function routeByHosts(host) {
 
 async function handleRequest(request) {
   const url = new URL(request.url);
-  console.log(request.url)
-  console.log(url.hostname)
   const upstream = routeByHosts(url.hostname.split('.')[0]);
-  console.log(upstream)
   if (upstream === "") {
     return new Response(
       JSON.stringify({
@@ -53,17 +50,10 @@ async function handleRequest(request) {
       redirect: "follow",
     });
     if (resp.status === 401) {
-      if (MODE == "debug") {
-        headers.set(
-          "Www-Authenticate",
-          `Bearer realm="http://${url.host}/v2/auth",service="cloudflare-docker-proxy"`
-        );
-      } else {
-        headers.set(
-          "Www-Authenticate",
-          `Bearer realm="https://${url.hostname}/v2/auth",service="cloudflare-docker-proxy"`
-        );
-      }
+      headers.set(
+        "Www-Authenticate",
+        `Bearer realm="https://${url.hostname}/v2/auth",service="cloudflare-docker-proxy"`
+      );
       return new Response(JSON.stringify({ message: "UNAUTHORIZED" }), {
         status: 401,
         headers: headers,
