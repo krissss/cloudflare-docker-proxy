@@ -10,26 +10,8 @@ local_protocol = "http"
 MODE = "debug"
 TARGET_UPSTREAM = "https://registry-1.docker.io"
 
-[env.production]
-name = "cloudflare-docker-proxy"
-# routes = [
-#   { pattern = "docker.kriss.pub", custom_domain = true },
-#   { pattern = "quay.kriss.pub", custom_domain = true },
-#   { pattern = "gcr.kriss.pub", custom_domain = true },
-#   { pattern = "k8s-gcr.kriss.pub", custom_domain = true },
-#   { pattern = "k8s.kriss.pub", custom_domain = true },
-#   { pattern = "ghcr.kriss.pub", custom_domain = true },
-#   { pattern = "cloudsmith.kriss.pub", custom_domain = true },
-# ]
+[env.docker]
+name = "docker"
 
-[env.production.vars]
-MODE = "production"
-TARGET_UPSTREAM = ""
-
-[env.staging]
-name = "cloudflare-docker-proxy-staging"
-# route = { pattern = "docker-staging.kriss.pub", custom_domain = true }
-
-[env.staging.vars]
-MODE = "staging"
-TARGET_UPSTREAM = ""
+[env.ghcr]
+name = "ghcr"

@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers
+name: Deploy to Cloudflare Workers(ghrc)
 
 on:
   push:
@@ -19,5 +19,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{secrets.CF_ACCOUNT_ID}}
-          command: deploy --env production --minify src/index.js
-          environment: production
+          command: deploy --env ghrc --minify src/index.js
+          environment: ghrc

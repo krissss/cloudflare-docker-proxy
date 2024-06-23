@@ -6,17 +6,13 @@ addEventListener("fetch", (event) => {
 const dockerHub = "https://registry-1.docker.io";
 
 const routes = {
-  // production
-  "docker.kriss.pub": dockerHub,
-  "quay.kriss.pub": "https://quay.io",
-  "gcr.kriss.pub": "https://gcr.io",
-  "k8s-gcr.kriss.pub": "https://k8s.gcr.io",
-  "k8s.kriss.pub": "https://registry.k8s.io",
-  "ghcr.kriss.pub": "https://ghcr.io",
-  "cloudsmith.kriss.pub": "https://docker.cloudsmith.io",
-
-  // staging
-  "docker-staging.kriss.pub": dockerHub,
+  "docker.krissss.workers.dev": dockerHub,
+  "quay.krissss.workers.dev": "https://quay.io",
+  "gcr.krissss.workers.dev": "https://gcr.io",
+  "k8s-gcr.krissss.workers.dev": "https://k8s.gcr.io",
+  "k8s.krissss.workers.dev": "https://registry.k8s.io",
+  "ghcr.krissss.workers.dev": "https://ghcr.io",
+  "cloudsmith.krissss.workers.dev": "https://docker.cloudsmith.io",
 };
 
 function routeByHosts(host) {
@@ -31,7 +27,7 @@ function routeByHosts(host) {
 
 async function handleRequest(request) {
   const url = new URL(request.url);
-  const upstream = routeByHosts(url.hostname);
+  const upstream = routeByHosts(url.hostname.split('.')[0]);
   if (upstream === "") {
     return new Response(
       JSON.stringify({

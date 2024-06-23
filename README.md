@@ -30,11 +30,7 @@
    - add more records and modify the config as you need
    ```javascript
    const routes = {
-     "docker.kriss.pub": "https://registry-1.docker.io",
-     "quay.kriss.pub": "https://quay.io",
-     "gcr.kriss.pub": "https://k8s.gcr.io",
-     "k8s-gcr.kriss.pub": "https://k8s.gcr.io",
-     "ghcr.kriss.pub": "https://ghcr.io",
+
    };
    ```
 
