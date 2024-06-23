@@ -20,4 +20,4 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{secrets.CF_ACCOUNT_ID}}
           command: deploy --env docker --minify src/index.js
-          environment: docker
+          environment: production
